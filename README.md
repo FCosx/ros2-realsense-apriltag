@@ -80,6 +80,31 @@ Terminal 4: TF/distance inspection
 Terminal 5: RViz
 ```
 
+## One-click launcher
+
+The repository includes a launcher that starts bag playback, AprilTag
+detection, detection output, and RViz:
+
+```bash
+chmod +x scripts/start_realsense_bag_apriltag.sh
+./scripts/start_realsense_bag_apriltag.sh --check
+./scripts/start_realsense_bag_apriltag.sh
+```
+
+It opens separate terminal windows for bag playback, the detector, and
+detection messages, then starts RViz with
+`config/realsense_bag_apriltag.rviz`. Close those terminal windows and RViz
+to stop the workflow.
+
+To use a different bag:
+
+```bash
+./scripts/start_realsense_bag_apriltag.sh /absolute/path/to/bag_directory
+```
+
+On this laptop, `Start RealSense AprilTag Bag.desktop` can also be copied to
+the desktop and double-clicked.
+
 ## Terminal 1: replay the bag continuously
 
 ```bash

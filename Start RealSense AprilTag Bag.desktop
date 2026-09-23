@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Start RealSense AprilTag Bag
+Comment=Play the recorded RealSense bag, detect AprilTags, and open RViz
+Exec=/home/fanchen/ros2-realsense-apriltag/scripts/start_realsense_bag_apriltag.sh
+Path=/home/fanchen/ros2-realsense-apriltag
+Icon=utilities-terminal
+Terminal=false
+StartupNotify=true
+Categories=Science;Robotics;

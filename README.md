@@ -447,3 +447,44 @@ Terminal 5
 
 This reproduces RealSense AprilTag detection entirely from recorded bag data;
 the physical RealSense camera is not required during replay.
+
+## Optional cubemap AprilTag mode
+
+The cubemap workflow detects tags in an Insta360 cubemap face without using
+RealSense CameraInfo. It creates synchronized dummy CameraInfo messages, runs
+2D AprilTag detection with pose estimation disabled, and publishes an annotated
+image for RViz.
+
+Start the default front-face workflow:
+
+```bash
+chmod +x scripts/start_cubemap_bag_apriltag.sh
+chmod +x scripts/cubemap_apriltag_support.py
+./scripts/start_cubemap_bag_apriltag.sh --check
+./scripts/start_cubemap_bag_apriltag.sh
+```
+
+Select a different cubemap face:
+
+```bash
+./scripts/start_cubemap_bag_apriltag.sh \
+  /home/fanchen/Desktop/rosbag2_2026_09_23-19_14_03 \
+  right
+```
+
+Supported face names are `front`, `back`, `left`, `right`, and
+`horizontal`.
+
+The cubemap RViz view displays:
+
+```text
+/apriltag_cubemap/image_annotated
+```
+
+Green outlines and labels such as `tag36h11:2` show successful detections.
+The label also includes the decision margin.
+
+This mode provides tag IDs, centers, corners, and decision margins. It does not
+provide valid tag TF, orientation, or distance because the synchronized
+CameraInfo contains no calibrated camera matrix. Use the RealSense workflow
+above when accurate 3D pose or distance is required.

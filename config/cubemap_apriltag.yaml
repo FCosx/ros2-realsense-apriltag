@@ -1,0 +1,14 @@
+/**:
+  ros__parameters:
+    family: "36h11"
+    size: 0.05
+    pose_estimation_method: ""
+    qos_profile: "sensor_data"
+    max_hamming: 1
+    detector:
+      threads: 4
+      decimate: 1.0
+      blur: 0.0
+      refine: true
+      sharpening: 0.25
+    use_sim_time: true

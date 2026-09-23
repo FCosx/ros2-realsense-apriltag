@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Start Cubemap AprilTag Bag
+Comment=Detect AprilTags in the front Insta360 cubemap face and open RViz
+Exec=/home/fanchen/ros2-realsense-apriltag/scripts/start_cubemap_bag_apriltag.sh
+Path=/home/fanchen/ros2-realsense-apriltag
+Icon=utilities-terminal
+Terminal=false
+StartupNotify=true
+Categories=Science;Robotics;

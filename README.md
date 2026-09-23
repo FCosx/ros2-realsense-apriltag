@@ -10,7 +10,7 @@ The example environment uses:
 - ROS 2 Jazzy
 - `apriltag_ros`
 - A `tag36h11` marker whose outer black square is 50 mm × 50 mm
-- Bag directory: `/home/fanchen/Desktop/rosbag2_2026_09_23`
+- Bag directory: `/home/fanchen/Desktop/rosbag2_2026_09_23-19_14_03`
 
 ## What the bag contains
 
@@ -18,7 +18,7 @@ Inspect the bag before starting:
 
 ```bash
 source /opt/ros/jazzy/setup.bash
-ros2 bag info /home/fanchen/Desktop/rosbag2_2026_09_23
+ros2 bag info /home/fanchen/Desktop/rosbag2_2026_09_23-19_14_03
 ```
 
 The relevant recorded RealSense topics are:
@@ -85,13 +85,13 @@ Terminal 5: RViz
 ```bash
 source /opt/ros/jazzy/setup.bash
 
-ros2 bag play /home/fanchen/Desktop/rosbag2_2026_09_23 \
+ros2 bag play /home/fanchen/Desktop/rosbag2_2026_09_23-19_14_03 \
   --clock \
   --loop
 ```
 
 - `--clock` publishes the recorded simulation clock.
-- `--loop` starts again when the approximately 64-second recording ends.
+- `--loop` starts again when the approximately 114-second recording ends.
 
 Leave this terminal running. Do not start `realsense2_camera`; the bag is now
 the camera-data publisher.
@@ -277,6 +277,31 @@ camera_color_optical_frame
 ```
 
 A tag TF exists only while that tag is successfully detected.
+
+Configure the TF display so the detection result is easy to see:
+
+| Property | Value |
+|---|---|
+| Show Names | Checked |
+| Show Axes | Checked |
+| Show Arrows | Checked |
+| Marker Scale | `0.2` initially; adjust as needed |
+| Frame Timeout | `1` |
+
+For a camera-centered view, Global Options → Fixed Frame can instead be set to
+`camera_color_optical_frame`. Each detected tag then appears as a named set of
+XYZ axes positioned and oriented relative to the RealSense color camera.
+
+The TF display is the AprilTag pose result in RViz:
+
+- Frame position represents the estimated tag translation.
+- Frame axes represent the estimated tag orientation.
+- The frame name contains the decoded ID, such as `tag36h11:2`.
+- IDs 0, 1, and 2 can appear simultaneously when they are visible together.
+
+RViz does not natively draw `AprilTagDetectionArray` corner boxes over the
+Image display. The Image display shows the recorded RGB frame, while the TF
+display shows the corresponding 3D detection result.
 
 ## Measure replay and detection rates
 

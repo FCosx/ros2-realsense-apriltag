@@ -86,7 +86,7 @@ Visualization Manager:
     - Class: rviz_default_plugins/TF
       Enabled: true
       Frame Timeout: 1
-      Marker Scale: 0.200000003
+      Marker Scale: 0.5
       Name: AprilTag TF
       Show Arrows: true
       Show Axes: true

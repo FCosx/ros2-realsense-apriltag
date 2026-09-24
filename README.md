@@ -310,7 +310,7 @@ Configure the TF display so the detection result is easy to see:
 | Show Names | Checked |
 | Show Axes | Checked |
 | Show Arrows | Checked |
-| Marker Scale | `0.2` initially; adjust as needed |
+| Marker Scale | `0.5` |
 | Frame Timeout | `1` |
 
 For a camera-centered view, Global Options → Fixed Frame can instead be set to
@@ -479,12 +479,15 @@ The cubemap RViz view displays:
 
 ```text
 /apriltag_cubemap/image_annotated
+/camera/camera/depth/color/points
+recorded camera transforms from /tf and /tf_static
 ```
 
 Green outlines and labels such as `tag36h11:2` show successful detections.
-The label also includes the decision margin.
+The label also includes the decision margin. The PointCloud2 and TF displays
+show the recorded RealSense point cloud and camera frame tree.
 
 This mode provides tag IDs, centers, corners, and decision margins. It does not
-provide valid tag TF, orientation, or distance because the synchronized
+provide AprilTag pose TF, orientation, or distance because the synchronized
 CameraInfo contains no calibrated camera matrix. Use the RealSense workflow
 above when accurate 3D pose or distance is required.

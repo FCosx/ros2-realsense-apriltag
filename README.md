@@ -324,6 +324,11 @@ RViz does not natively draw `AprilTagDetectionArray` corner boxes over the
 Image display. The Image display shows the recorded RGB frame, while the TF
 display shows the corresponding 3D detection result.
 
+Example RViz view with the RealSense color image, point cloud, and detected
+tag TF axes:
+
+![RViz showing three AprilTags in the RealSense image alongside point cloud and TF axes](images/rviz-realsense-apriltags.jpg)
+
 ## Measure replay and detection rates
 
 Run these commands one at a time:
